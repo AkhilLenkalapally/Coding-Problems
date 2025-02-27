@@ -1,0 +1,23 @@
+class Solution {
+    public int findMin(int[] nums) {
+        int low=0, high = nums.length-1;
+        while(low<high)
+        {
+            int mid = low+(high-low)/2;
+        if(nums[low]<=nums[high])               //check if array is sorted
+        { 
+            return nums[low];                  //return first element (i.e. min)
+        }
+        if(nums[low]<=nums[mid])              //If left half is sorted, move right
+        {
+
+            low=mid+1; 
+        }
+        else
+        {
+            high = mid;                        //If right half is sorted, then move left
+        }
+        }
+        return nums[low];                     //return min element
+    }
+}
